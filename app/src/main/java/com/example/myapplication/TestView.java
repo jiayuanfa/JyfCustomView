@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,11 @@ import androidx.annotation.Nullable;
  * 自定义View
  */
 public class TestView extends View {
+
+    /**
+     * 圆的半径
+     */
+    private static final float RADIUS = 50f;
 
     /**
      * 初始化画笔，并打开抗锯齿
@@ -42,9 +48,16 @@ public class TestView extends View {
 
         /**
          * 首先来画一条线
-         * 1：需要两个点
+         * 1：参数：起点、终点、画笔
          * 2：Paint控制风格
          */
         canvas.drawLine(100, 100, 200, 300, paint);
+
+        /**
+         * 画出一个圆
+         * 圆心x,y以及半径、画笔
+         * 这里单位是px，但是我们绘制的时候，可以使用方法把dp转化使用
+         */
+        canvas.drawCircle(getWidth() / 2f, getHeight() / 2f, Utils.dp2px(RADIUS, this), paint);
     }
 }
