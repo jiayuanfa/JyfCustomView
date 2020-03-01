@@ -57,6 +57,6 @@ public class TestView extends View {
          * 圆心x,y以及半径、画笔
          * 这里单位是px，但是我们绘制的时候，可以使用方法把dp转化使用
          */
-        canvas.drawCircle(getWidth() / 2f, getHeight() / 2f, Utils.dp2px(RADIUS, getContext()), paint);
+        canvas.drawCircle(getWidth() / 2f, getHeight() / 2f, Utils.dp2px(RADIUS), paint);
     }
 }
